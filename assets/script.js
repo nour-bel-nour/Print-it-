@@ -17,4 +17,15 @@ const slides = [
     tagLine: 'Autocollants <span>avec découpe laser sur mesure</span>',
   },
 ];
+  
+  //... Ajout des Event Listeners sur les flèches 
+  let flecheGauche = document.querySelector("#banner .arrow_left")
+  let flecheDroite = document.querySelector("#banner .arrow_right")
 
+  flecheGauche.addEventListener('click', () => {
+    console.log('Gauche')
+  })
+
+  flecheDroite.addEventListener('click', () => {
+    console.log('Droite')
+  })
