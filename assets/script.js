@@ -24,11 +24,11 @@ const slides = [
   const flecheGauche = document.querySelector("#banner .arrow_left")
   const flecheDroite = document.querySelector("#banner .arrow_right")
 
-        flecheGauche.addEventListener('click', () => {ChangeCarrousel('prev')})
-        flecheDroite.addEventListener('click', () => {ChangeCarrousel('next')})
+        flecheGauche.addEventListener('click', () => {ChangeCarrousel('gauche')})
+        flecheDroite.addEventListener('click', () => {ChangeCarrousel('droite')})
 
 
-///...3....Ajout bullet points au slider.......c 
+///...3....Ajout bullet points au slider....... 
    
   // Boucle pour créer un point pour chaque image du caroussel
   slides.forEach((slide, index) => {
@@ -49,7 +49,7 @@ const slides = [
   const images  = document.querySelectorAll('#banner .banner-img')
   const textes  = document.querySelector   ('#banner p')
 
-  function miseàJourCarrousel(i)           {
+  function  miseàJourCarrousel(i)        {
     
     // changement point actif au suivant
     points.forEach((point, e) => {
@@ -60,8 +60,19 @@ const slides = [
     images.forEach((image)    => {
     image.src = `assets/images/slideshow/${slides[i].image}`
     image.alt = `         Banner Print-it${slides[i].image}` })
-  
+ 
     // changement texte
     textes.innerHTML = slides[i].tagLine  }
 
 
+///...5....Mise en place du défilement infini sur le carrousel.......  
+  
+  let indiceCarrousel = 0
+
+  function  ChangeCarrousel(sens) { 
+     // clique dernière image affiche la première image,texte,point                                                                                                      
+          if (sens === 'droite') {indiceCarrousel = (indiceCarrousel + 1) % slides.length} 
+     // clique premiére image affiche la derniére image,texte,point  
+     else if (sens === 'gauche') {indiceCarrousel = (indiceCarrousel - 1  + slides.length) % slides.length}
+               miseàJourCarrousel(indiceCarrousel)  } 
+                          
