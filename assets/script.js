@@ -81,20 +81,20 @@ function changeCarrousel(sens) {
   if (sens === "droite") {
     //Si on est dernière image
     if (indiceCarrousel === slides.length - 1) {
-    //affiche première image  
+      //affiche première image
       indiceCarrousel = 0;
     } else {
-      indiceCarrousel = indiceCarrousel + 1;
+      indiceCarrousel++;
     }
   }
 
   if (sens === "gauche") {
-    //Si on est première image 
+    //Si on est première image
     if (indiceCarrousel === 0) {
-    //on affiche dernière image
+      //on affiche dernière image
       indiceCarrousel = slides.length - 1;
     } else {
-      indiceCarrousel = indiceCarrousel - 1;
+      indiceCarrousel--;
     }
   }
 
