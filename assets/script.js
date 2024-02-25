@@ -53,10 +53,10 @@ const points = document.querySelectorAll("#banner .dots .dot");
 const images = document.querySelectorAll("#banner .banner-img");
 const textes = document.querySelector("#banner p");
 
-function miseaJourCarrousel(i) {
+function miseaJourCarrousel(action) {
   // changement point actif au suivant
-  points.forEach((point, e) => {
-    if (e === i) {
+  points.forEach((point, index) => {
+    if (index === action) {
       point.classList.add("dot_selected");
     } else {
       point.classList.remove("dot_selected");
@@ -64,13 +64,13 @@ function miseaJourCarrousel(i) {
   });
 
   // changement image
-  images.forEach((image) => {
-    image.src = `assets/images/slideshow/${slides[i].image}`;
-    image.alt = `Banner Print-it${slides[i].image}`;
-  });
+  for (let image of images) {
+    image.src = `assets/images/slideshow/${slides[action].image}`;
+    image.alt = `Banner Print-it/${slides[action].image}`;
+  }
 
   // changement texte
-  textes.innerHTML = slides[i].tagLine;
+  textes.innerHTML = slides[action].tagLine;
 }
 
 ///...5....Mise en place du défilement infini sur le carrousel.......
